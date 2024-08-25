@@ -28,6 +28,6 @@ The workflow is defined in `.github/workflows/commit.yml` and is scheduled to ru
 
 ## Example `commit_number.md`
 
-```markdown
+```markdown 
 Hello, my name is bishwa shah
 commit number: 1
