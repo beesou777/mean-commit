@@ -11,10 +11,12 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      with:
+       ref: main
 
     - name: Create file and commit
       run: |
-        FILE="mean-commit/commit_number.md"
+        FILE="commit_number.md"
         if [ ! -f "$FILE" ]; then
           echo "Hello, my name is bishwa shah" > "$FILE"
           echo "commit number: 1" >> "$FILE"
