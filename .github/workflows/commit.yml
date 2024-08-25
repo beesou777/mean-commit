@@ -12,22 +12,22 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Generate Random Text and Commit
+    - name: create file and Commit
       run: |
-        FILE="random_text.md"
+        FILE="../../commit_number.md"
 
         if [ ! -f "$FILE" ]; then
           echo "Hello, my name is bishwa shah" > "$FILE"
-          echo "Count: 1" >> "$FILE"
+          echo "commit number: 1" >> "$FILE"
         else
-          CURRENT_COUNT=$(grep -oP 'Count: \K\d+' "$FILE")
+          CURRENT_COUNT=$(grep -oP 'number: \K\d+' "$FILE")
           if [ -z "$CURRENT_COUNT" ]; then
             CURRENT_COUNT=0
           fi
 
           NEXT_COUNT=$((CURRENT_COUNT + 1))
 
-          sed -i "/Count: /c\Count: $NEXT_COUNT" "$FILE"
+          sed -i "/number: /c\number: $NEXT_COUNT" "$FILE"
         fi
 
         git config --global user.name "beesou777"
