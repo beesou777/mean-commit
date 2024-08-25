@@ -1,30 +1,23 @@
-# DailyMdCommits: Randomized Daily Commits
+# DailyMdCommits: Random Daily Commits
 
-Welcome to the **DailyMdCommits** repository! This project is set up to automatically commit a message to this repository every day. The message includes a greeting along with a random number sequence like `32443` or `12345!?`.
+Welcome to the **DailyMdCommits** repository! 🎉 This project is designed to automate daily commits to this repository with a fun twist. Each day, a new message is committed to the repository, including a random number sequence.
 
-## What Does This Repository Do?
+## What This Repository Does
 
-This repository automatically commits a file named `random_text.md` with the following content:
-- A greeting: `"Hello, my name is bishwa shah"`
-- A randomized number sequence, such as `1337`, `31337!?`, etc.
-
-These commits are made daily using GitHub Actions.
+Every day, a file named `random_text.md` is updated with:
+- A friendly greeting: `"Hello, my name is bishwa shah"`
+These updates are made daily using GitHub Actions.
 
 ## How It Works
 
-- **GitHub Actions** triggers a workflow daily at midnight (UTC).
-- The workflow generates a random 4-digit number with a 50% chance of adding `!?` at the end.
-- It writes the message and random number to `random_text.md`.
-- The changes are then committed and pushed to the repository automatically.
+- **GitHub Actions** triggers a workflow every day at midnight (UTC).
+- In this the count is increase and written to `random_text.md`.
+- The updated file is then committed and pushed to the repository.
 
 ## About the Author
 
-- **Name:** bishwa jung shah
+- **Name:** Bishwa Jung Shah
 - **Username:** beesou777
 - **Email:** sbeesou@gmail.com
 
-Thank you for checking out this repository!
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Thanks for visiting!
