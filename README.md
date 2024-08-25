@@ -1,23 +1,33 @@
-# DailyMdCommits: Random Daily Commits
+# Bishwa's Daily Midnight Commit
 
-Welcome to the **DailyMdCommits** repository! 🎉 This project is designed to automate daily commits to this repository with a fun twist. Each day, a new message is committed to the repository, including a random number sequence.
+## Overview
 
-## What This Repository Does
+This GitHub Actions workflow performs a daily commit to the repository at midnight UTC. It updates a file with a commit number, starting from 1 and incrementing with each commit made on subsequent days.
 
-Every day, a file named `random_text.md` is updated with:
-- A friendly greeting: `"Hello, my name is bishwa shah"`
-These updates are made daily using GitHub Actions.
+## Workflow
 
-## How It Works
+The workflow is defined in `.github/workflows/commit.yml` and is scheduled to run daily at midnight UTC using a cron job. The main steps include:
 
-- **GitHub Actions** triggers a workflow every day at midnight (UTC).
-- In this the count is increase and written to `random_text.md`.
-- The updated file is then committed and pushed to the repository.
+1. **Checkout Repository**: Clones the repository to the runner.
+2. **Create File and Commit**:
+   - Checks if the file `commit_number.md` exists in the root directory.
+   - If the file does not exist, it creates it and writes an initial message and commit number.
+   - If the file exists, it reads the current commit number, increments it, and updates the file.
+   - Configures Git with the specified user name and email.
+   - Adds the file to the Git index, commits the changes, and pushes the commit to the repository.
 
-## About the Author
+## File Structure
 
-- **Name:** Bishwa Jung Shah
-- **Username:** beesou777
-- **Email:** sbeesou@gmail.com
+- `.github/workflows/commit.yml`: Defines the GitHub Actions workflow.
+- `commit_number.md`: The file updated and committed by the workflow.
 
-Thanks for visiting!
+## Configuration
+
+- **Schedule**: The workflow runs daily at midnight UTC (`0 0 * * *`).
+- **GitHub Token**: The workflow uses the `GITHUB_TOKEN` secret to authenticate and push changes.
+
+## Example `commit_number.md`
+
+```markdown
+Hello, my name is bishwa shah
+commit number: 1
