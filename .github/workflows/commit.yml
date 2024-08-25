@@ -1,0 +1,24 @@
+name: Bishwa's Daily Commit
+
+on:
+  schedule:
+    - cron: '*/1 * * * *' # Run every minute
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Generate Random Text and Commit
+      run: |
+        echo "Hello, my name is bishwa shah" > random_text.md
+        RANDOM_NUMBER=$((RANDOM % 9000 + 1000))$(if [ $((RANDOM % 2)) -eq 0 ]; then echo "!?"; fi)
+        echo "$RANDOM_NUMBER" >> random_text.md
+        git config --global user.name "beesou777"
+        git config --global user.email "sbeesou@gmail.com"
+        git add random_text.md
+        git commit -m "Hello, my name is bishwa shah nice to meet you"
+        git push
