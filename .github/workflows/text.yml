@@ -1,0 +1,35 @@
+name: Bishwa's Daily Commit
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # Every day at midnight UTC
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create file and commit
+      run: |
+        FILE="mean-commit/commit_number.md"
+        if [ ! -f "$FILE" ]; then
+          echo "Hello, my name is bishwa shah" > "$FILE"
+          echo "commit number: 1" >> "$FILE"
+        else
+          CURRENT_COUNT=$(grep -oP 'commit number: \K\d+' "$FILE")
+          if [ -z "$CURRENT_COUNT" ]; then
+            CURRENT_COUNT=0
+          fi
+          NEXT_COUNT=$((CURRENT_COUNT + 1))
+          sed -i "/commit number: /c\commit number: $NEXT_COUNT" "$FILE"
+        fi
+        git config --global user.name "beesou777"
+        git config --global user.email "sbeesou@gmail.com"
+        git add "$FILE"
+        git commit -m "Hello, my name is bishwa shah nice to meet you"
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/beesou777/mean-commit.git
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
