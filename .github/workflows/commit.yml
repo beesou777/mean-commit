@@ -21,7 +21,6 @@ jobs:
           echo "Count: 1" >> "$FILE"
         else
           CURRENT_COUNT=$(grep -oP 'Count: \K\d+' "$FILE")
-
           if [ -z "$CURRENT_COUNT" ]; then
             CURRENT_COUNT=0
           fi
@@ -30,9 +29,10 @@ jobs:
 
           sed -i "/Count: /c\Count: $NEXT_COUNT" "$FILE"
         fi
+
         git config --global user.name "beesou777"
         git config --global user.email "sbeesou@gmail.com"
-        git add random_text.md
+        git add "$FILE"
         git commit -m "Hello, my name is bishwa shah nice to meet you"
         git push
       env:
