@@ -3,7 +3,7 @@ name: Bishwa's Daily Commit
 on:
   schedule:
     - cron: '*/1 * * * *'  # Every day at midnight UTC
-
+  workflow_dispatch:
 jobs:
   commit:
     runs-on: ubuntu-latest
