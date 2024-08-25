@@ -14,7 +14,7 @@ jobs:
 
     - name: create file and Commit
       run: |
-        FILE="../../commit_number.md"
+         FILE=".github/commit_number.md"
 
         if [ ! -f "$FILE" ]; then
           echo "Hello, my name is bishwa shah" > "$FILE"
