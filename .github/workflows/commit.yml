@@ -1,9 +1,5 @@
 name: Bishwa's Daily Commit
 
-on:
-  schedule:
-    - cron: '0 0 * * *'  # Every day at midnight UTC
-
 jobs:
   commit:
     runs-on: ubuntu-latest
